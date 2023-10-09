@@ -13,12 +13,20 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById(R.id.button2);
 
-        val dice = Dice(6)
         rollButton.setOnClickListener {
-            val resultTextView: TextView = findViewById(R.id.textView)
-            resultTextView.text = dice.roll().toString();
+            rollDice()
         }
 
 
+    }
+
+    private fun rollDice() {
+        // Create new Dice object with 6 sides and roll it
+        val dice = Dice(6)
+        val diceRoll = dice.roll()
+
+        // Update the screen with the dice roll
+        val resultTextView: TextView = findViewById(R.id.textView)
+        resultTextView.text = diceRoll.toString()
     }
 }
